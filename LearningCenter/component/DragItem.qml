@@ -4,8 +4,8 @@ Item {
     id: root
     property alias containsMouse: mouseArea.containsMouse
     signal posChange(int xOffset, int yOffset)
-    implicitWidth: 12   //这里隐式的宽为12
-    implicitHeight: 12  //这里隐式的高为12
+    implicitWidth: 4   //这里隐式的宽为12
+    implicitHeight: 4  //这里隐式的高为12
     property int posType: Qt.ArrowCursor
 
     readonly property int posLeftTop: Qt.SizeFDiagCursor

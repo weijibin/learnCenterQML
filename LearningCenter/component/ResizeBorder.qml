@@ -3,13 +3,21 @@ import QtQuick 2.7
 Rectangle {
     id: root
     color: "transparent"
-    border.width: 3
-    border.color: "gray"
+    border.width: 1
+    border.color: "red"
     width: parent.width
     height: parent.height
+
+    property int dragSize: 5
     property var control: parent
     DragItem {
         posType: posLeftTop
+
+        x:0;
+        y:0;
+        width:dragSize;
+        height: dragSize;
+
         onPosChange: {
             //不要简化这个判断条件，至少让以后维护的人能看懂。化简过后我自己都看不懂了。
             if (control.x + xOffset < control.x + control.width)
@@ -24,7 +32,12 @@ Rectangle {
     }
     DragItem {
         posType: posTop
-        x: (parent.width - width) / 2
+
+        x: dragSize
+        y: 0
+        width: parent.width-2*dragSize
+        height: dragSize
+
         onPosChange: {
             if (control.y + yOffset < control.y + control.height)
                 control.y += yOffset;
@@ -34,7 +47,12 @@ Rectangle {
     }
     DragItem {
         posType: posRightTop
-        x: parent.width - width
+
+        x: parent.width - dragSize
+        y:0;
+        width:dragSize;
+        height: dragSize;
+
         onPosChange: {
             //向左拖动时，xOffset为负数
             if (control.width + xOffset > 0)
@@ -47,7 +65,12 @@ Rectangle {
     }
     DragItem {
         posType: posLeft
-        y: (parent.height - height) / 2
+
+        x: 0
+        y: dragSize;
+        width:dragSize;
+        height: parent.height - 2*dragSize;
+
         onPosChange: {
             if (control.x + xOffset < control.x + control.width)
                 control.x += xOffset;
@@ -57,8 +80,12 @@ Rectangle {
     }
     DragItem {
         posType: posRight
-        x: parent.width - width
-        y: (parent.height - height) / 2
+
+        x: parent.width - dragSize
+        y: dragSize
+        width:dragSize;
+        height: parent.height - 2*dragSize;
+
         onPosChange: {
             if (control.width + xOffset > 0)
                 control.width += xOffset;
@@ -66,7 +93,12 @@ Rectangle {
     }
     DragItem {
         posType: posLeftBottom
-        y: parent.height - height
+
+        x: 0
+        y: parent.height - dragSize
+        width:dragSize;
+        height: parent.height - 2*dragSize;
+
         onPosChange: {
             if (control.x + xOffset < control.x + control.width)
                 control.x += xOffset;
@@ -78,8 +110,12 @@ Rectangle {
     }
     DragItem {
         posType: posBottom
-        x: (parent.width - width) / 2
-        y: parent.height - height
+
+        x: dragSize
+        y: parent.height - dragSize
+        width:parent.width - 2*dragSize;
+        height: dragSize;
+
         onPosChange: {
             if (control.height + yOffset > 0)
                 control.height += yOffset;
@@ -87,8 +123,12 @@ Rectangle {
     }
     DragItem {
         posType: posRightBottom
-        x: parent.width - width
-        y: parent.height - height
+
+        x: parent.width - dragSize
+        y: parent.height - dragSize
+        width: dragSize;
+        height: dragSize;
+
         onPosChange: {
             if (control.width + xOffset > 0)
                 control.width += xOffset;

@@ -10,8 +10,8 @@ Window {
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint
     minimumWidth: 1280
     minimumHeight: 720
-    width: 1280
-    height: 720
+//    width: 1280
+//    height: 720
 
     title: qsTr("learn center")
     screen: Qt.application.screens[0];
@@ -68,7 +68,6 @@ Window {
             }
 
             onDoubleClicked: {
-                console.log("onDoubleClicked==>"+isPressed + root.visibility);
                 isDoubleClick = true;
 
                 if(root.visibility != Window.FullScreen) {
@@ -89,10 +88,24 @@ Window {
             text: "min"
             width: 40;
             height: 40;
-            onClicked: {
-                console.log("onMinmized==>");
-                root.visibility = Window.Minimized;
+//            onClicked: {
+//                console.log("onMinmized==>");
+//                root.visibility = Window.Minimized;
+//            }
+
+//            hoverEnabled: true
+//            cursorShape: Qt.PointingHandCursor
+
+            MouseArea {
+                id: area
+                anchors.fill: parent
+                onClicked: {
+                    root.visibility = Window.Minimized;
+                }
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
             }
+
         }
     }
 

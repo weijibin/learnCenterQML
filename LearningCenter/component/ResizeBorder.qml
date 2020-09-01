@@ -2,10 +2,9 @@ import QtQuick 2.7
 
 Rectangle {
     id: root
-//    color: "transparent"
-    color: "green"
-    border.width: 4
-    border.color: "black"
+    color: "transparent"
+    border.width: 3
+    border.color: "gray"
     width: parent.width
     height: parent.height
     property var control: parent

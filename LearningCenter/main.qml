@@ -2,15 +2,20 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.5
 
+import "./component"
+
 Window {
     id: root;
     visible: true
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint
+    minimumWidth: 1280
+    minimumHeight: 720
     width: 1280
     height: 720
-    title: qsTr("learn center")
 
+    title: qsTr("learn center")
     screen: Qt.application.screens[0];
+
 
     Rectangle {
         id: title
@@ -89,6 +94,11 @@ Window {
                 root.visibility = Window.Minimized;
             }
         }
+    }
+
+    ResizeBorder {
+        control: root     //默认就是parent，可以不写。这里写出来示意一下。
+        anchors.fill: parent
     }
 
     onScreenChanged: {

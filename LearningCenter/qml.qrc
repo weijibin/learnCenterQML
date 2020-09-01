@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>component/DragItem.qml</file>
+        <file>component/ResizeBorder.qml</file>
     </qresource>
 </RCC>

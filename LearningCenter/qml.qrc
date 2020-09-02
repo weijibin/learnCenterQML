@@ -3,5 +3,60 @@
         <file>main.qml</file>
         <file>component/DragItem.qml</file>
         <file>component/ResizeBorder.qml</file>
+        <file>TitlePage.qml</file>
+        <file>ContentPage.qml</file>
+        <file>component/DragArea.qml</file>
+        <file>res/learncenter/classDefaultImg.png</file>
+        <file>res/learncenter/courseLoading.gif</file>
+        <file>res/learncenter/default_boy_img.png</file>
+        <file>res/learncenter/default_jingpin.png</file>
+        <file>res/learncenter/default_wangluo.png</file>
+        <file>res/learncenter/default_wuke.png</file>
+        <file>res/learncenter/icon_caidan.png</file>
+        <file>res/learncenter/icon_caidan_hover.png</file>
+        <file>res/learncenter/icon_checked.png</file>
+        <file>res/learncenter/icon_date_left.png</file>
+        <file>res/learncenter/icon_date_left_hover.png</file>
+        <file>res/learncenter/icon_date_right.png</file>
+        <file>res/learncenter/icon_date_right_hover.png</file>
+        <file>res/learncenter/icon_down.png</file>
+        <file>res/learncenter/icon_expired.png</file>
+        <file>res/learncenter/icon_fanhui.png</file>
+        <file>res/learncenter/icon_fanhui_hover.png</file>
+        <file>res/learncenter/icon_guanbi.png</file>
+        <file>res/learncenter/icon_guanbi_hover.png</file>
+        <file>res/learncenter/icon_kecheng_left.png</file>
+        <file>res/learncenter/icon_kecheng_left_hover.png</file>
+        <file>res/learncenter/icon_kecheng_right.png</file>
+        <file>res/learncenter/icon_kecheng_right_hover.png</file>
+        <file>res/learncenter/icon_month_left.png</file>
+        <file>res/learncenter/icon_month_left_hover.png</file>
+        <file>res/learncenter/icon_month_right.png</file>
+        <file>res/learncenter/icon_month_right_hover.png</file>
+        <file>res/learncenter/icon_shuaxin.png</file>
+        <file>res/learncenter/icon_shuaxin_hover.png</file>
+        <file>res/learncenter/icon_unchecked.png</file>
+        <file>res/learncenter/icon_up.png</file>
+        <file>res/learncenter/icon_yiguoqi.png</file>
+        <file>res/learncenter/icon_yituike.png</file>
+        <file>res/learncenter/icon_zuidahua.png</file>
+        <file>res/learncenter/icon_zuidahua_hover.png</file>
+        <file>res/learncenter/icon_zuixiaohua.png</file>
+        <file>res/learncenter/icon_zuixiaohua_hover.png</file>
+        <file>res/learncenter/logo.png</file>
+        <file>res/learncenter/menu/icon_about.png</file>
+        <file>res/learncenter/menu/icon_clear.png</file>
+        <file>res/learncenter/menu/icon_detect.png</file>
+        <file>res/learncenter/menu/icon_set.png</file>
+        <file>res/learncenter/menu/icon_switch.png</file>
+        <file>res/learncenter/menu/icon_update.png</file>
+        <file>component/ImageBtn.qml</file>
+        <file>component/ImageTextBtn.qml</file>
+        <file>component/TextBtn.qml</file>
+        <file>composite/MainTitle.qml</file>
+        <file>composite/ChapterTitle.qml</file>
+        <file>composite/ClassPage.qml</file>
+        <file>composite/CoursePage.qml</file>
+        <file>composite/ChapterPage.qml</file>
     </qresource>
 </RCC>

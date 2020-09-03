@@ -43,7 +43,6 @@ Rectangle {
                     width: 90;
                     height: 36;
                     radius: height/2;
-//                    color: tabW.tabindex == 0 ? tabW.checkedColor : tabW.uncheckedColor;
                     color: tabW.tabindex == 0 ? tabW.checkedColor : "transparent";
                     textColor: tabW.tabindex == 0 ? tabW.uncheckedColor : tabW.checkedColor;
                     textFont {

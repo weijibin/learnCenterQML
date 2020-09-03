@@ -15,6 +15,9 @@ Rectangle {
     property alias textItem: t
     property alias text: t.text
     property alias textColor: t.color
+    property alias font: t.font
+    property alias textWidth: t.width
+    property alias textHeight: t.height
     property alias containsMouse: area.containsMouse
     property alias containsPress: area.containsPress
     signal clicked();

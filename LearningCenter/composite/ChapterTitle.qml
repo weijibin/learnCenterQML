@@ -77,7 +77,7 @@ Rectangle {
             }
 
             onClicked: {
-                console.log("testtttt" + isMac);
+                console.log("场次列表 学习" + isMac);
             }
         }
 
@@ -87,6 +87,10 @@ Rectangle {
             width: 20;
             height: 20;
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_shuaxin_hover.png" : "qrc:/res/learncenter/icon_shuaxin.png")
+
+            onClicked: {
+                console.log("场次列表 刷新" + isMac);
+            }
         }
     }
 
@@ -103,6 +107,10 @@ Rectangle {
             width: 20;
             height: 20;
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
+
+            onClicked: {
+                console.log("场次列表 最小化" + isMac);
+            }
         }
 
         ImageBtn {

@@ -58,5 +58,6 @@
         <file>composite/ClassPage.qml</file>
         <file>composite/CoursePage.qml</file>
         <file>composite/ChapterPage.qml</file>
+        <file>component/RadiusImage.qml</file>
     </qresource>
 </RCC>

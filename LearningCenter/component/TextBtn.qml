@@ -5,10 +5,11 @@ Rectangle {
     property alias textItem: t      //导出Text实例，方便外部直接修改
     property alias text: t.text     //导出文本
     property alias textColor: t.color   //导出文本颜色
+    property alias textFont: t.font   //导出字体
     property alias containsMouse: area.containsMouse    //导出鼠标悬浮
     property alias containsPress: area.containsPress    //导出鼠标按下
     signal clicked();               //自定义点击信号
-    color: "transparent"
+    color: "gray"
     Text {
         id: t
         //默认坐标居中

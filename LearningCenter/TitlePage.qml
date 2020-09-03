@@ -12,14 +12,14 @@ Rectangle {
         id: mainTitle;
         anchors.fill: parent;
         opacity: isMainTitle ? 1:0;
-        color: "yellow";
+        color: "#FFFFFF";
     }
 
     ChapterTitle {
         id: chapterTitle;
         anchors.fill: parent;
         opacity: isMainTitle ? 0:1;
-        color: "red"
+        color: "#FFFFFF";
     }
 }
 

@@ -9,24 +9,34 @@ Rectangle {
 
     ImageTextBtn {
         id: backBtn;
+        layoutType: 0;
+
+        width: 60;
+        height: 25;
+
         anchors.verticalCenter: parent.verticalCenter;
         anchors.left: isMac ? ctrlLeft.right : parent.left;
         anchors.leftMargin: 10;
+
         imageUrl: containsMouse ? "qrc:/res/learncenter/icon_fanhui_hover.png" : "qrc:/res/learncenter/icon_fanhui.png";
         imageWidth: 20;
         imageHeight: 20;
 
+        textColor: containsMouse ? "#FF5E50" : "#212831"
         textWidth: 18;
         textHeight: 32;
+
         text: "返回";
-        textColor: "#212831";
         font {
             pixelSize: 16;
             bold: Font.Bold;
         }
 
+        //todo: bug
+        z:2;
+
         onClicked: {
-            console.log("testtttt");
+            console.log("你按下了图片按钮")
         }
     }
 

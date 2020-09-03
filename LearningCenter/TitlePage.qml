@@ -8,12 +8,12 @@ Rectangle {
     color: "#FF7700";
     property bool isMainTitle: true
 
-    MainTitle {
-        id: mainTitle;
-        anchors.fill: parent;
-        opacity: isMainTitle ? 1:0;
-        color: "#FFFFFF";
-    }
+//    MainTitle {
+//        id: mainTitle;
+//        anchors.fill: parent;
+//        opacity: isMainTitle ? 1:0;
+//        color: "#FFFFFF";
+//    }
 
     ChapterTitle {
         id: chapterTitle;

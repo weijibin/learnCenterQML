@@ -32,9 +32,6 @@ Rectangle {
             bold: Font.Bold;
         }
 
-        //todo: bug
-        z:2;
-
         onClicked: {
             console.log("你按下了图片按钮")
         }

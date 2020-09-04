@@ -25,7 +25,6 @@ Rectangle {
         textColor: containsMouse ? "#FF5E50" : "#212831"
         textWidth: 18;
         textHeight: 32;
-
         text: "返回";
         font {
             pixelSize: 16;
@@ -33,8 +32,10 @@ Rectangle {
         }
 
         onClicked: {
-            console.log("你按下了图片按钮")
+            console.log("你按下了返回按钮")
         }
+
+        z:2;   //todo 不设置z 属性，hover 不灵敏
     }
 
     Row {

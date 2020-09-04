@@ -6,7 +6,7 @@ Item {
 
     Rectangle {
         id:content;
-        color: "gray"
+        color: "white"
         anchors.fill: parent;
         Text {
             id: name

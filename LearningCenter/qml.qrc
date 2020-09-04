@@ -59,5 +59,8 @@
         <file>composite/CoursePage.qml</file>
         <file>composite/ChapterPage.qml</file>
         <file>component/RadiusImage.qml</file>
+        <file>dialogs/MenuPopup.qml</file>
+        <file>dialogs/AboutDialog.qml</file>
+        <file>dialogs/CalendarDialog.qml</file>
     </qresource>
 </RCC>

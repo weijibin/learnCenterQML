@@ -8,20 +8,46 @@ Rectangle {
     color: "#FF7700";
     property bool isMainTitle: true
 
-    MainTitle {
-        id: mainTitle;
-        anchors.fill: parent;
-        opacity: isMainTitle ? 1:0;
-        color: "#FFFFFF";
-        z: isMainTitle ? 1:0;
+    onIsMainTitleChanged: {
+        if(isMainTitle) {
+            hideComp();
+            showComp("qrc:/composite/MainTitle.qml");
+        } else {
+            hideComp();
+            showComp("qrc:/composite/ChapterTitle.qml");
+        }
     }
 
-    ChapterTitle {
-        id: chapterTitle;
-        anchors.fill: parent;
-        opacity: isMainTitle ? 0:1;
-        color: "#FFFFFF";
-        z: isMainTitle ? 0:1;
+    Loader {
+        id: compLoader
+        anchors.fill: parent
+        visible: opacity > 0
+        opacity: 1
+        source: "qrc:/composite/MainTitle.qml"
+        onSourceChanged: {
+            console.log("source changed", source)
+        }
+        onLoaded: {
+            item.anchors.centerIn = compLoader
+//            binder.target = compLoader.item
+        }
+    }
+
+    Binding {
+        id: binder
+//        property: "speed"
+//        value: speed
+    }
+
+    function showComp(compPath) {
+        console.log("showComp", compPath)
+        compLoader.source = compPath
+    }
+    function hideComp() {
+        compLoader.source = ""
+    }
+
+    Component.onCompleted: {
     }
 }
 

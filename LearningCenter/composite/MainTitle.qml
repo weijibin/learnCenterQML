@@ -1,9 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4
+import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.12
 import "../component"
+import "../dialogs"
 
 Rectangle {
+    id: root
     property bool isMac: false;
 
     Image {
@@ -113,6 +116,10 @@ Rectangle {
             width: 20;
             height: 20;
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_shuaxin_hover.png" : "qrc:/res/learncenter/icon_shuaxin.png")
+
+            onClicked: {
+                console.log("上课 刷新" + isMac);
+            }
         }
 
         ImageBtn {
@@ -120,7 +127,33 @@ Rectangle {
             width: 20;
             height: 20;
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_caidan_hover.png" : "qrc:/res/learncenter/icon_caidan.png")
+
+            onClicked: {
+                console.log("上课 点击菜单" + isMac);
+                menPop.show();
+//                aboutDlg.show();
+            }
         }
+    }
+
+    MenuPopup {
+        id: menPop;
+        barColor: "yellow"
+        x: menBtn.x + menBtn.width/2 +40;
+        y: menBtn.y + menBtn.height;
+        backgroundWidth: 180
+        backgroundHeight: 267
+        contentItem: Text {
+            id: myText
+            text: qsTr("text" + x + y)
+        }
+    }
+
+    AboutDialog {
+        id: aboutDlg
+
+        x: 100
+        y: 200
     }
 
     // windows 控制栏
@@ -136,6 +169,10 @@ Rectangle {
             width: 20;
             height: 20;
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
+
+            onClicked: {
+                console.log("上课 最小化" + isMac);
+            }
         }
 
         ImageBtn {

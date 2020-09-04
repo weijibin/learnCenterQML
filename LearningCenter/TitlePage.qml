@@ -7,6 +7,7 @@ Rectangle {
     height: 50;
     color: "#FF7700";
     property bool isMainTitle: true
+    property int appHeight: null
 
     onIsMainTitleChanged: {
         if(isMainTitle) {
@@ -29,14 +30,14 @@ Rectangle {
         }
         onLoaded: {
             item.anchors.centerIn = compLoader
-//            binder.target = compLoader.item
+            binder.target = compLoader.item
         }
     }
 
     Binding {
         id: binder
-//        property: "speed"
-//        value: speed
+        property: "appHeight"
+        value: root.appHeight
     }
 
     function showComp(compPath) {

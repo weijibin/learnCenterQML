@@ -6,6 +6,7 @@ import "../component"
 Rectangle {
     id:root;
     property bool isMac: false;
+    property int appHeight: null
 
     ImageTextBtn {
         id: backBtn;

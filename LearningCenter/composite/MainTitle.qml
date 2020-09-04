@@ -8,6 +8,7 @@ import "../dialogs"
 Rectangle {
     id: root
     property bool isMac: false;
+    property int appHeight: null
 
     Image {
         id: logo
@@ -130,8 +131,8 @@ Rectangle {
 
             onClicked: {
                 console.log("上课 点击菜单" + isMac);
-                menPop.show();
-//                aboutDlg.show();
+//                menPop.show();
+                aboutDlg.show();
             }
         }
     }
@@ -151,9 +152,8 @@ Rectangle {
 
     AboutDialog {
         id: aboutDlg
-
-        x: 100
-        y: 200
+        x: (root.width - aboutDlg.width)/2
+        y: (root.appHeight - aboutDlg.height)/2
     }
 
     // windows 控制栏

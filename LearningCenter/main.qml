@@ -22,12 +22,18 @@ Window {
         width: parent.width;
     }
 
+    Binding {
+        id: siz
+        target: title
+        property: "appHeight"
+        value: root.height
+    }
+
     ContentPage {
         id: content;
         x:0;
         y: title.height;
-//        width: parent.width;
-//        height: parent.height - title.height;
+
         anchors {
             top: title.bottom
             bottom: parent.bottom

@@ -9,7 +9,8 @@ Dialog {
     width: 600
     height: 340
     modal: true
-    dim: false
+    dim: true
+    closePolicy: Popup.CloseOnEscape
 
     background: Rectangle {
         id: back
@@ -87,8 +88,6 @@ Dialog {
 
     function show()
     {
-        x = (parent.width - width) / 2
-        y = (parent.height - height) / 2
         open()
     }
 

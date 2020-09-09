@@ -120,6 +120,7 @@ Rectangle {
 
             onClicked: {
                 console.log("上课 刷新" + isMac);
+                aboutDlg.show()
             }
         }
 
@@ -131,8 +132,7 @@ Rectangle {
 
             onClicked: {
                 console.log("上课 点击菜单" + isMac);
-//                menPop.show();
-                aboutDlg.show();
+                menPop.show();
             }
         }
     }
@@ -140,10 +140,10 @@ Rectangle {
     MenuPopup {
         id: menPop;
         barColor: "yellow"
-        x: menBtn.x + menBtn.width/2 +40;
-        y: menBtn.y + menBtn.height;
         backgroundWidth: 180
         backgroundHeight: 267
+        x: (root.width - menPop.width)/2
+        y: (root.appHeight - menPop.height)/2
         contentItem: Text {
             id: myText
             text: qsTr("text" + x + y)

@@ -58,7 +58,7 @@ Window {
             id: test2;
             text: "testBtnContent";
             onClicked: {
-                content.contentType = ((content.contentType + 1)%3);
+                content.contentType = ((content.contentType + 1)%4);
             }
         }
     }

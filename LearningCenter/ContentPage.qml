@@ -23,5 +23,11 @@ Rectangle {
         anchors.fill: parent;
         opacity: (contentType === 2);
     }
+
+    WebViewPage {
+        id: webP
+        anchors.fill: parent
+        opacity: (contentType === 3);
+    }
 }
 

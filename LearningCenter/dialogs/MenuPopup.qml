@@ -17,6 +17,7 @@ Item {
 
     property real verticalOffset: 20
 
+
 //    z: 10
     //矩形旋转45度，一半被toolTip遮住(重合)，另一半三角形和ToolTip组成一个带箭头的ToolTip
     Rectangle {
@@ -37,6 +38,8 @@ Item {
         id: popup
         width: backgroundWidth
         height: backgroundHeight
+        modal: true
+        dim: false
         background: Rectangle {
             id: background
             color: barColor

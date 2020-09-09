@@ -62,5 +62,7 @@
         <file>dialogs/MenuPopup.qml</file>
         <file>dialogs/AboutDialog.qml</file>
         <file>dialogs/CalendarDialog.qml</file>
+        <file>composite/WebViewPage.qml</file>
+        <file>res/learncenter/xue.png</file>
     </qresource>
 </RCC>

@@ -120,7 +120,6 @@ Rectangle {
 
             onClicked: {
                 console.log("上课 刷新" + isMac);
-                aboutDlg.show()
             }
         }
 
@@ -135,25 +134,37 @@ Rectangle {
                 menPop.show();
             }
         }
+
+
     }
 
     MenuPopup {
         id: menPop;
-        barColor: "yellow"
-        backgroundWidth: 180
-        backgroundHeight: 267
-        x: (root.width - menPop.width)/2
-        y: (root.appHeight - menPop.height)/2
-        contentItem: Text {
-            id: myText
-            text: qsTr("text" + x + y)
+        width: 180
+        height: 267
+        x: menu.x - width + menu.width + 10
+        y: menu.y + menBtn.height + 10
+        onSigItemClicked: {
+            console.log("menu click===" + index);
+            menPop.hide();
+            if(index === 1) {
+
+            } else if(index === 2) {
+
+            } else if(index === 3) {
+
+            } else if(index === 4) {
+                aboutDlg.x = (root.width - aboutDlg.width)/2
+                aboutDlg.y = (root.appHeight - aboutDlg.height)/2
+                aboutDlg.show();
+            } else if(index === 5) {
+
+            }
         }
     }
 
     AboutDialog {
         id: aboutDlg
-        x: (root.width - aboutDlg.width)/2
-        y: (root.appHeight - aboutDlg.height)/2
     }
 
     // windows 控制栏

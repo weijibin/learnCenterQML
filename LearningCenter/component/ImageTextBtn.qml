@@ -46,6 +46,9 @@ Rectangle {
             img.anchors.verticalCenter = root.verticalCenter
             t.anchors.verticalCenter = root.verticalCenter
             img.anchors.left = root.left
+
+            img.anchors.leftMargin = (root.width-img.width-t.width-6)/2
+
             t.anchors.left = img.right
             t.anchors.leftMargin = 6
             break;

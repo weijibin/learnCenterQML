@@ -4,7 +4,7 @@ import "./composite"
 Rectangle {
     id:root;
     color:"green";
-    property int contentType: 0
+    property int contentType: 1
 
     ClassPage {
         id: classP

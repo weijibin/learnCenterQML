@@ -9,7 +9,7 @@ Dialog {
     width: 480
     height: 343
     modal: true
-    dim: false
+    dim: true
     closePolicy: Popup.CloseOnEscape
 
     property string versionNum: "2.2.0"

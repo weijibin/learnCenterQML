@@ -2,19 +2,20 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.12
+import QtQml 2.12
 import "../component"
 import "../dialogs"
 
 Rectangle {
     id: root
-    property bool isMac: false;
+    property bool isMac: true;
     property int appHeight: null
 
     Image {
         id: logo
         anchors.verticalCenter: parent.verticalCenter;
-        anchors.left: isMac ? ctrlLeft.right : parent.left;
-        anchors.leftMargin: 20;
+        anchors.left:  parent.left;
+        anchors.leftMargin: isMac ? 90 :20;
         source: "qrc:/res/learncenter/logo.png"
     }
 
@@ -107,8 +108,9 @@ Rectangle {
     Row {
         id: menu;
 
-        anchors.right: isMac ? parent.right : ctrlRight.left;
-        anchors.rightMargin: 10;
+        anchors.right: parent.right;
+        anchors.rightMargin: isMac ? 10 : 90;
+
         anchors.verticalCenter: parent.verticalCenter;
         spacing: 10;
 
@@ -119,7 +121,7 @@ Rectangle {
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_shuaxin_hover.png" : "qrc:/res/learncenter/icon_shuaxin.png")
 
             onClicked: {
-                console.log("上课 刷新" + isMac);
+                console.log("上课 刷新");
             }
         }
 
@@ -130,11 +132,10 @@ Rectangle {
             imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_caidan_hover.png" : "qrc:/res/learncenter/icon_caidan.png")
 
             onClicked: {
-                console.log("上课 点击菜单" + isMac);
+                console.log("上课 点击菜单");
                 menPop.show();
             }
         }
-
 
     }
 
@@ -167,72 +168,81 @@ Rectangle {
         id: aboutDlg
     }
 
-    // windows 控制栏
-    Row {
-        id: ctrlRight;
-        opacity: isMac? 0:1;
-        anchors.right: parent.right;
-        anchors.rightMargin: 10;
-        anchors.verticalCenter: parent.verticalCenter;
-        spacing: 5;
-        ImageBtn {
-            id: minBtn;
-            width: 20;
-            height: 20;
-            imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
+    Component {
+        id: winCtr
+        Row {
+            anchors.right: parent.right;
+            anchors.rightMargin: 10;
+            anchors.verticalCenter: parent.verticalCenter;
+            spacing: 5;
+            ImageBtn {
+                id: minBtn;
+                width: 20;
+                height: 20;
+                imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
 
-            onClicked: {
-                console.log("上课 最小化" + isMac);
+                onClicked: {
+                    console.log("上课 最小化");
+                }
+            }
+
+            ImageBtn {
+                id: maxBtn;
+                width: 20;
+                height: 20;
+                imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
+            }
+
+            ImageBtn {
+                id: closeBtn;
+                width: 20;
+                height: 20;
+                imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_guanbi_hover.png" : "qrc:/res/learncenter/icon_guanbi.png")
             }
         }
 
-        ImageBtn {
-            id: maxBtn;
-            width: 20;
-            height: 20;
-            imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
-        }
+    }
 
-        ImageBtn {
-            id: closeBtn;
-            width: 20;
-            height: 20;
-            imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_guanbi_hover.png" : "qrc:/res/learncenter/icon_guanbi.png")
+    Component {
+        id: macCtr
+        //mac 控制栏
+        Row {
+            id: ctrlLeft;
+            anchors.left: parent.left;
+            anchors.leftMargin: 10;
+            anchors.verticalCenter: parent.verticalCenter;
+            spacing: 5;
+
+            ImageBtn {
+                id: closeMacBtn;
+                width: 20;
+                height: 20;
+                imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_guanbi_hover.png" : "qrc:/res/learncenter/icon_guanbi.png")
+            }
+
+            ImageBtn {
+                id: minMacBtn;
+                width: 20;
+                height: 20;
+                imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
+            }
+
+            ImageBtn {
+                id: maxMacBtn;
+                width: 20;
+                height: 20;
+                imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
+            }
         }
     }
 
-    //mac 控制栏
-    Row {
-        id: ctrlLeft;
-        anchors.left: parent.left;
-        anchors.leftMargin: 10;
-        anchors.verticalCenter: parent.verticalCenter;
-        spacing: 5;
-        opacity: isMac? 1:0;
-
-        ImageBtn {
-            id: closeMacBtn;
-            width: 20;
-            height: 20;
-            imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_guanbi_hover.png" : "qrc:/res/learncenter/icon_guanbi.png")
+    Component.onCompleted: {
+        if(isMac) {
+            macCtr.createObject(parent, { });
+        } else {
+            winCtr.createObject(parent, { });
         }
 
-        ImageBtn {
-            id: minMacBtn;
-            width: 20;
-            height: 20;
-            imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
-        }
-
-        ImageBtn {
-            id: maxMacBtn;
-            width: 20;
-            height: 20;
-            imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
-        }
-    }
-
-//    Component.onCompleted: {
 //        color = Qt.rgba(Math.random(125), Math.random(125), Math.random(125), 255);
-//    }
+    }
 }

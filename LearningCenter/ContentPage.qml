@@ -4,30 +4,29 @@ import "./composite"
 Rectangle {
     id:root;
     color:"green";
-    property int contentType: 1
+    property int contentType: 0
 
-    ClassPage {
-        id: classP
-        anchors.fill: parent;
-        opacity: (contentType === 0);
-    }
-
-    CoursePage {
-        id: courseP;
-        anchors.fill: parent;
-        opacity: (contentType === 1);
-    }
-
-    ChapterPage {
-        id: chapterP;
-        anchors.fill: parent;
-        opacity: (contentType === 2);
-    }
-
-    WebViewPage {
-        id: webP
+    Loader {
+        id: body
         anchors.fill: parent
-        opacity: (contentType === 3);
+
+        source: "qrc:/composite/ClassPage.qml"
+
+        onLoaded: {
+            console.log("加载完成")
+        }
+    }
+
+    onContentTypeChanged: {
+        if(contentType === 0) {
+            body.source = "qrc:/composite/ClassPage.qml"
+        } else if (contentType === 1){
+            body.source = "qrc:/composite/CoursePage.qml"
+        } else if(contentType === 2) {
+            body.source = "qrc:/composite/ChapterPage.qml"
+        } else {
+            body.source = "qrc:/composite/WebViewPage.qml"
+        }
     }
 }
 

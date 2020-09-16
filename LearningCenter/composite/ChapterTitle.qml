@@ -121,7 +121,11 @@ Rectangle {
 
                 onClicked: {
                     console.log("上课 最大化");
-                    ctrApp.onShowMax()
+                    if(ctrApp.isMaxed === true) {
+                        ctrApp.onShowNor()
+                    } else {
+                        ctrApp.onShowMax()
+                    }
                 }
             }
 
@@ -183,7 +187,11 @@ Rectangle {
 
                 onClicked: {
                     console.log("上课 最大化");
-                    ctrApp.onShowMax()
+                    if(ctrApp.isMaxed === true) {
+                        ctrApp.onShowNor()
+                    } else {
+                        ctrApp.onShowMax()
+                    }
                 }
             }
         }

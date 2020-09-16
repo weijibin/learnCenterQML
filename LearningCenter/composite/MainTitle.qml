@@ -8,7 +8,7 @@ import "../dialogs"
 
 Rectangle {
     id: root
-    property bool isMac: true;
+    property bool isMac: Qt.platform.os === "osx";
     property int appHeight: null
 
     Image {
@@ -183,6 +183,7 @@ Rectangle {
 
                 onClicked: {
                     console.log("上课 最小化");
+                    ctrApp.onShowMin()
                 }
             }
 
@@ -191,6 +192,11 @@ Rectangle {
                 width: 20;
                 height: 20;
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
+
+                onClicked: {
+                    console.log("上课 最大化");
+                    ctrApp.onShowMax()
+                }
             }
 
             ImageBtn {
@@ -198,6 +204,11 @@ Rectangle {
                 width: 20;
                 height: 20;
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_guanbi_hover.png" : "qrc:/res/learncenter/icon_guanbi.png")
+
+                onClicked: {
+                    console.log("上课 关闭");
+                    ctrApp.onCloseWin()
+                }
             }
         }
 
@@ -218,6 +229,11 @@ Rectangle {
                 width: 20;
                 height: 20;
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_guanbi_hover.png" : "qrc:/res/learncenter/icon_guanbi.png")
+
+                onClicked: {
+                    console.log("上课 关闭");
+                    ctrApp.onCloseWin()
+                }
             }
 
             ImageBtn {
@@ -225,6 +241,12 @@ Rectangle {
                 width: 20;
                 height: 20;
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuixiaohua_hover.png" : "qrc:/res/learncenter/icon_zuixiaohua.png")
+
+                onClicked: {
+                    console.log("上课 最小化");
+                    ctrApp.onShowMin()
+
+                }
             }
 
             ImageBtn {
@@ -232,6 +254,11 @@ Rectangle {
                 width: 20;
                 height: 20;
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
+
+                onClicked: {
+                    console.log("上课 最大化");
+                    ctrApp.onShowMax()
+                }
             }
         }
     }

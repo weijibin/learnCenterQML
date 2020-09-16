@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.5
 
 Item {
     id:root;
@@ -13,5 +14,13 @@ Item {
             anchors.bottom: parent.bottom;
             text: qsTr("CourseList")
         }
+    }
+
+    BusyIndicator{
+        id:mybusy
+        width: 200
+        height: 200
+        running:true;
+        anchors.centerIn: parent
     }
 }

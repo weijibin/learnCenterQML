@@ -38,7 +38,7 @@ Rectangle {
         id: binder
         property: "appHeight"
         value: root.appHeight
-    }
+    } 
 
     function showComp(compPath) {
         console.log("showComp", compPath)

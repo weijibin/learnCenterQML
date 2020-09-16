@@ -12,11 +12,22 @@ void ControlCenter::setAppObj(QObject *obj)
     m_appObj = obj;
 }
 
+bool ControlCenter::isMaxed() const
+{
+    return m_isMaxed;
+}
+
+void ControlCenter::setMaxed(bool is)
+{
+    m_isMaxed = is;
+}
+
 void ControlCenter::onShowMax()
 {
     qDebug() << Q_FUNC_INFO;
     if(m_appObj != nullptr) {
         QMetaObject::invokeMethod(m_appObj,  "showMax");
+//        QMetaObject::invokeMethod(m_appObj,  "showFul");
     }
 }
 

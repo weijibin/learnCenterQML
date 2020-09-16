@@ -194,8 +194,12 @@ Rectangle {
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
 
                 onClicked: {
-                    console.log("上课 最大化");
-                    ctrApp.onShowMax()
+                    console.log("上课 最大化" + ctrApp.isMaxed);
+                    if(ctrApp.isMaxed === true) {
+                        ctrApp.onShowNor()
+                    } else {
+                        ctrApp.onShowMax()
+                    }
                 }
             }
 
@@ -256,8 +260,12 @@ Rectangle {
                 imageUrl: (containsMouse ? "qrc:/res/learncenter/icon_zuidahua_hover.png" : "qrc:/res/learncenter/icon_zuidahua.png")
 
                 onClicked: {
-                    console.log("上课 最大化");
-                    ctrApp.onShowMax()
+                    console.log("上课 最大化" + ctrApp.isMaxed);
+                    if(ctrApp.isMaxed === true) {
+                        ctrApp.onShowNor()
+                    } else {
+                        ctrApp.onShowMax()
+                    }
                 }
             }
         }

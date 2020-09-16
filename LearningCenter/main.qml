@@ -9,19 +9,27 @@ Window {
     id: root;
     objectName: "mainWindow";
     visible: true
-//    flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint
     minimumWidth: 1280
     minimumHeight: 720
+
+    property bool isMac: Qt.platform.os === "osx";
 
     Component.onCompleted: flags = flags | Qt.WindowFullscreenButtonHint
 
     flags: Qt.Window | Qt.CustomizeWindowHint
+           |Qt.WindowSystemMenuHint|Qt.WindowMinimizeButtonHint|Qt.WindowMaximizeButtonHint
 
     title: qsTr("learn center")
     screen: Qt.application.screens[0];
 
-//    RadiusImage
-
+    Connections{
+        target: root
+        onVisibilityChanged: {
+            if(!isMac && ctrApp.isMaxed && root.visibility === Window.Windowed) {
+                showMax();
+            }
+        }
+    }
 
     MouseArea{
         height: 50
@@ -30,22 +38,26 @@ Window {
         anchors.right: parent.right
 
         property point clickPos: Qt.point(0,0)
+        property bool  isDoubleClick: false
+
         onPressed: {
-            if(root.visibility != 4 && root.visibility != 5)
+            isDoubleClick = false;
+            if(root.visibility != 4 && root.visibility != 5) {
                 clickPos  = Qt.point(mouse.x,mouse.y)
+            }
         }
         onDoubleClicked: {
-            var item = root.Maximized;
+            isDoubleClick = true;
             if(root.visibility != 4 && root.visibility != 5){
-                root.showMaximized()
+                showMax()
             }
             else{
-                root.showNormal()
+                showNor()
             }
         }
 
         onPositionChanged: {
-            if(root.visibility != 4 && root.visibility != 5){
+            if(root.visibility != 4 && root.visibility != 5 && !isDoubleClick){
                 var delta = Qt.point(mouse.x-clickPos.x, mouse.y-clickPos.y)
                 root.x += delta.x;
                 root.y += delta.y;
@@ -102,6 +114,7 @@ Window {
     }
 
     function showMax() {
+        ctrApp.isMaxed = true
         root.showMaximized()
     }
 
@@ -110,10 +123,12 @@ Window {
     }
 
     function showNor() {
+        ctrApp.isMaxed = false
         root.showNormal()
     }
 
     function showFul() {
+        ctrApp.isMaxed = true
         root.showFullScreen()
     }
 
